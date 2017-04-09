@@ -1,0 +1,32 @@
+<%= form_for(current_user) do |f| %>
+  <% if current_user.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% current_user.error.full_messages.each do |full_messages| %>
+         <li>
+           <%= full_messages %>
+         </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  名前
+  <%= f.text_field :name, class: 'form-control' %>
+
+  メールアドレス
+  <%= f.text_field :email, class: 'form-control' %>
+  
+  地域
+  <%= f.text_field :place, class: 'form-control' %>
+  
+  パスワード
+   <%= f.password_field :password, class: 'form-contorol' %>
+   
+  パスワードの確認
+   <%= f.password_field :password_confirmation %>
+
+  <%= f.submit class: "btn btn-sm btn-primary" %>
+<% end %>
+    
